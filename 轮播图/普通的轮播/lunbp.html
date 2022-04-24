@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            width: 800px;
+            height: 450px;
+        }
+        li {
+            float: left;
+        }
+        .div_view {
+            margin: 0 auto;
+            width: 800px;
+            height: 450px;
+            /* background-color: red; */
+            overflow: hidden;
+        }
+        ul {
+            position: relative;
+            width: 3200px;
+            left: 0px;
+            list-style: none;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            function getStyle(obj,name){
+                //第一个参数为obj为要获取属性的对象
+                //第二个参数为name为要获取的属性名字
+                return window.getComputedStyle?getComputedStyle(obj,null)[name]:obj.currentStyle[name]
+                //这种方式的代码比if判断要简单一些
+            }   
+                let speed=5;
+                setInterval(function(){
+                    console.log("start");
+                    //获取ing的宽度和图片的数量
+                    let img_w=parseInt(getStyle(document.getElementById("view"),"width")); 
+                    let imgNum=3;
+
+                    let timer=setInterval(function(){
+                        let ul=document.getElementById("ul");
+                        let left=parseInt(getStyle(ul,"left"));
+                        //获取ul和它的left值
+                        ul.style.left=left-speed+"px";
+                        //修改left
+                        left=parseInt(getStyle(ul,"left"));
+                        //更新left值
+                        if(left==-(img_w*imgNum))
+                        {
+                            ul.style.left=0+"px";
+                        }
+                        if(left%img_w==0)
+                        {
+                            clearInterval(timer);
+                        }
+                    },10)
+                },4000);
+        }
+    </script>
+</head>
+<body>
+    <div class="div_view" id="view">
+        <ul id="ul">
+            <li><img src="img/1.jpg" alt="" id="img_1"></li>
+            <li><img src="img/2.jpg" alt="" id="img_2"></li>
+            <li><img src="img/3.jpg" alt="" id="img_3"></li>
+            <li><img src="img/1.jpg" alt="" id="img_1"></li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+ <!-- // let timer=-1;
+            // function moveOnce(){
+            //     console.log("start");
+            //     let ul=document.getElementById("ul");
+            //     let temp;
+            //     let speed=1;
+            //     console.log("test: "+timer!=(-1));
+            //     console.log(timer);
+            //     timer=setInterval(function(){
+            //     ul.style.left=parseInt(getStyle(ul,"left"))-speed+"px";
+            //     temp=parseInt(getStyle(ul,"left"));
+            //     if(temp==-600)
+            //     {
+            //         ul.style.left=0+"px";
+            //     }
+            // },10) 
+            // }      -->

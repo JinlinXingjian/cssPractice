@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .div{
+            background-size: cover;
+            background: repeat-x;
+            background-attachment: fixed;
+            width: 100%;
+            height: 800px;
+        }
+        .div .div_text{
+            justify-content:center;
+            /* text-align: center;特别的，需要盒子内的子元素是可以浮动的才可以居中 */
+            text-align: center;
+            position: relative;
+            top: 400px;
+            
+        }
+        .div .div_text h1{
+            font-size: 80px;
+            color: rgba(255,255,255,1.0);
+        }
+    </style>
+</head>
+<body>
+    <div class="div" id="" style="background-image: url(../img/1.jpg);">
+        <div class="div_text">
+            <h1>蓦然回首</h1>
+        </div>
+    </div>
+    <div class="div" id="" style="background-image: url(../img/2.jpg);">
+        <div class="div_text">
+            <h1>那人却在</h1>
+        </div>
+    </div>
+    <div class="div" id="" style="background-image: url(../img/3.jpg);">
+        <div class="div_text">
+            <h1>灯火阑珊处</h1>
+        </div>
+    </div>
+    
+</body>
+</html>
